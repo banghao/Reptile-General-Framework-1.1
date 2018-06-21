@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="aboutInfo"
+            type="com.android.cbh.pwd.mvp.model.bean.AboutDB"/>
+    </data>
+    <!--data标签中创建变量，variable表示声明的变量，其中，name表示变量名，type表示变量类型。-->
+    <!--xml中使用变量用 @{bean.xxx} 表示-->
+    <!--数据模块使用data标签，定义变量名称name——下面android:text属性中调用的名称，
+    及类型type——定义变量所指的类型或类（如果是自定义类，必须给完整包名+类名-->
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:fitsSystemWindows="true"
+        android:background="?attr/colorPrimary"
+        tools:context=".mvp.ui.activity.AboutActivity">
+    
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/common_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+        <!--3) 引用主题属性-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            >
+    
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:layout_marginTop="80dp"
+                android:textSize="30sp"
+                android:textColor="@android:color/white"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:text="v1.0.0"
+                android:textColor="@android:color/white"
+                android:text="@{aboutInfo.version}"
+                />
+            <!--布局引用这个 data 属性的变量应该使用 “@{}” 语句来描述。-->
+        </LinearLayout>
+        <!--Android MaterialRippleLayout 涟漪效果-->
+        <!--1、引入包码中添加，2.view为需要实现效果的控件。让指定View显示Material Ripple 效果的控件-->
+        <!--http://www.jcodecraeer.com/a/opensource/2014/1202/2094.html-->
+        <com.balysv.materialripple.MaterialRippleLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="80dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:mrl_rippleOverlay="true"
+            app:mrl_rippleColor="?attr/colorPrimary"
+            >
+            <Button
+                android:id="@+id/codeButton"
+                android:background="@drawable/about_button_background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/colorPrimaryDark"
+                android:text="My GitHub"/>
+        </com.balysv.materialripple.MaterialRippleLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            android:text="Copyright © 2018 ChenBangHao."/>
+    </LinearLayout>
+</layout>
+    <!--DataBinding,2015年IO大会介绍的一个框架，字面理解即为数据绑定，
+    是Google对MVVM在Android上的一种实现，可以直接绑定数据到xml中，并实现自动刷新。-->
+    <!--好处：-->
+    <!--去掉大部分UI相关代码（比如findViewById、setOnClickListener、setText等）-->
+    <!--xml变成UI的唯一真实来源，数据绑定也直接发生在xml-->
+
+    <!--android 命名空间android用于 Android 系统定义的一些属性。-->
+    <!--app 命名空间app用于我们应用自定义的一些属性，这个与 Android 自定义属性和系统控件扩展应该有关系，大家可以再继续研究一下。-->
+    <!--tools 根据官方定义，tools命名空间用于在 XML 文档记录一些，当应用打包的时候，会把这部分信息给过滤掉，不会增加应用的 size，说直白点，这些属性是为IDE提供相关信息。-->
+
+    <!--2.xmlns:tools=""-->
+    <!--tools:context=".xxxActivity"tools:context=”.xxxActivity”作用：-->
+    <!--让Layout Editor知道当前布局对应哪一个Activity，来更好的显示预览界面，-->
+    <!--比如当前使用了一个主题，或者使用了一个ActionBar，就都可以显示出来。-->
+    <!--如果不添加这个属性，就只会显示布局文件定义的界面。-->
+
+    <!--“预先定义好的样式”。也就是相当于给这个样式定义一个变量，随后是可以进行赋值的。-->
+    <!--?attr/,再看@color与@drawable，后面2个是我们平时最常用的，就是指定资源，不是动态的，不会随着主题变化-->
+
+
+    <!--第一步：在attrs.xml中声明一个属性,指定属性的名字及 属性值的类型-->
+    <!--二：由于从源码里面窥探出，attr/是跟随Theme来变化的，因此我们可以定义一个继承自Android系统某一主题的主题样式-->
+       <!--在自定义主题里面，再定义一个供外面调用的属性名，并赋值：-->
+    <!--最后我们在xml中使用自定义控件的自定义属性时-->
+
+    <!--android.support.v7.widget.ToolbarToolBar当做一个布局控件ViewGroup来使，不再像ActionBar那样受限制-->
+
+    <!--app:popupTheme，这个属性就是用来自定义我们弹出的菜单的样式，Overlay.弹出的是白底黑字-->
+
+
+

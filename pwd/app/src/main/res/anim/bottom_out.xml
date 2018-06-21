@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<translate
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="300"
+    android:fromYDelta="0"
+    android:toYDelta="100%p"/>
+    <!--从左边划进来：-100%p—>0-->
+    <!--第二个：slide_in_right：从右边划进来：100%p—>0-->
+    <!--第三个：slide_out_left：从左边划出去：0—>-100%p-->
+    <!--第四个：slide_out_right：从右边划出去：0—>100%p**-->

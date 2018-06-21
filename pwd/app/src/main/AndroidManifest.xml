@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.cbh.pwd">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--允许检查网络状态-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!--权限允许将下载的apk保存到sd卡中-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--网络访问权限-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--读取手机状态数据-->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <application
+        android:name=".Application"
+        android:allowBackup="true"
+        android:icon="@mipmap/app_icon2"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/DeepPurpleTheme">
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="56aae26ce0f55a85ca0022ed" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${CHANNEL_VALUE}" />
+        <activity
+            android:name=".mvp.ui.activity.SplashActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--SplashActivity的实现步骤-->
+        <!--由于在APP启动页面加载时，会有白屏闪过，用这种方法加载启动页面的图片会避免此问题，达到秒开的效果-->
+        <activity
+            android:name=".mvp.ui.activity.IndexActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityNoTranslucent" />
+        <activity android:name=".mvp.ui.activity.CreateLockActivity" />
+        <activity android:name=".mvp.ui.activity.CheckLockActivity" />
+        <activity
+            android:name=".mvp.ui.activity.SettingActivity"
+            android:launchMode="singleTop" />
+        <activity android:name=".mvp.ui.activity.EditActivity" />
+        <activity android:name=".mvp.ui.activity.FeedBackActivity" />
+        <activity android:name=".mvp.ui.activity.AboutActivity" />
+        <activity android:name=".mvp.ui.activity.WebViewActivity"></activity>
+        <!--常见的自动更新模式，当用户进入应用首页后，如果处于wifi环境则检测更新，如果有更新，弹出对话框提示有新版本，用户点选更新开始下载更新。-->
+        <service
+            android:name="com.umeng.update.net.DownloadingService"
+            android:process=":DownloadingService" />
+        <!--友盟（Umeng），2010年4月在北京成立，是中国最专业、最有数据凝聚力的移动开发者服务平台。-->
+        <!--友盟以移动应用统计分析为产品起点，-->
+        <!--发展成为提供从基础设置搭建-开发-运营服务的整合服务平台，致力于为移动开发者提供专业的数据统计分析、-->
+        <activity
+            android:name="com.umeng.update.UpdateDialogActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    </application>
+
+</manifest>

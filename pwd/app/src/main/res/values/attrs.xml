@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- LockPatternView class attributes 类属性-->
+    <declare-styleable name="LockPatternView">
+
+        <!--
+             Aspect to use when drawing LockPatternView. Choices are "square"(default), "lock_width"
+             or "lock_height"
+             在绘制锁模式视图时使用的方面。选择是“平方”（默认），“锁定宽度” 或“洛克高”
+        -->
+        <attr name="aspect">
+            <enum name="square" value="0" />
+            <enum name="lockWidth" value="1" />
+            <enum name="lockHeight" value="2" />
+        </attr>
+        <attr name="line" format="color" />
+        <attr name="btnNormal" format="reference" />
+        <attr name="btnTouched" format="reference" />
+        <attr name="circleNormal" format="reference" />
+        <attr name="circleGreen" format="reference" />
+        <attr name="circleRed" format="reference" />
+        <attr name="arrowGreenUp" format="reference" />
+        <attr name="arrowRedUp" format="reference" />
+    </declare-styleable>
+</resources>
+
+    <!--属性值 的类型有以下几种：-->
+
+    <!--1. reference: 指参考指定Theme中的资源ID(比如：@string/test)-->
+    <!--2. color:指颜色值(比如：#FFFF0000)-->
+    <!--3. boolean: 布尔值(比如：true)-->
+    <!--4. dimension:尺寸（比如：100dp）-->
+    <!--5. float：浮点型(比如：0.3)-->
+    <!--6. integer：整型(比如：1)-->
+    <!--7. string：字符串-->
+    <!--8. fraction：百分数(比如：100%)-->
+    <!--9. flag：或运算(比如：0x10 | 0x11)-->
+    <!--10. enum：枚举-->

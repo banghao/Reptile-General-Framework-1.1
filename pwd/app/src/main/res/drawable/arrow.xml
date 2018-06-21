@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rotate xmlns:android="http://schemas.android.com/apk/res/android"
+        android:drawable="@mipmap/ic_arrow_drop_down_black_24dp"
+        android:fromDegrees="0"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toDegrees="180" />
+<!--为什么用代码实现：1.更专业，也可以多练习2.图并不复杂，也不多-->
+    <!--，用代码实现更方便3.这是一种更新的学习方式，为什么不用呢？-->
+<!--arrow箭头-->
